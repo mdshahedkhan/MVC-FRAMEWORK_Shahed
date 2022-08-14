@@ -1,0 +1,31 @@
+/*Error Page Css Start*/
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: 300;
+    color: #515b65;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: 500;
+}
+
+/*End Error Page*/

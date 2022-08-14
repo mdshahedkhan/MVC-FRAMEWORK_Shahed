@@ -1,0 +1,25 @@
+{
+    "name": "hm-shahed/mvc-framework",
+    "autoload": {
+        "psr-4": {
+            "App\\Config\\": "./config",
+            "App\\Http\\Controller\\": "./app/Http/Controller",
+            "App\\Models\\": "./app/Models",
+            "App\\Migrations\\": "./migrations"
+        },
+        "files": [
+            "./app/Helpers/function.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Shahed Khan",
+            "email": "63577807+mdshahedkhan@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "ext-intl": "*",
+        "ext-ctype": "*",
+        "ext-pdo": "*"
+    }
+}
