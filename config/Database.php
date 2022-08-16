@@ -4,6 +4,7 @@ namespace App\Config;
 
 use PDO;
 use PDOException;
+use App\Config\Exceptions\DatabaseConnectionException;
 
 class Database
 {
@@ -20,9 +21,8 @@ class Database
             $DB_NAME       = self::DB_NAME;
             self::$PDO     = new PDO("mysql:host=$DB_SERVERNAME;dbname=$DB_NAME", self::DB_USERNAME, self::DB_PASSWORD);
             self::$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $exception) {
-            echo "Connection failed" . $exception->getMessage();
-            die();
+        } catch (DatabaseConnectionException $exception) {
+            echo $exception->getMessage();
         }
     }
 }

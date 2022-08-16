@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'hm-shahed/mvc-framework',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'hm_shahed/mvc-framework',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'dca1392131e5645bb92164ff72c98a7229852a22',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'hm-shahed/mvc-framework' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+        'hm_shahed/mvc-framework' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'dca1392131e5645bb92164ff72c98a7229852a22',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

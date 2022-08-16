@@ -2,14 +2,14 @@
 
 
 use App\Config\Route;
-use App\Config\View;
-use App\Http\Controller\Controller;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\TestController;
+use App\Http\Controllers\HomeController;
 
-
-Route::get('/', function () {
-    $link = "https://www.facebook.com/nsf.shahed/";
-    return View::render('welcome', compact('link'));
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::prefix('/admin')->group(function () {
+    Route::get('/index', [TestController::class, 'store'])->name('store');
+    Route::get('/manage', [AuthController::class, 'index']);
 });
 
 
-Route::get('/users', [Controller::class, 'index']);

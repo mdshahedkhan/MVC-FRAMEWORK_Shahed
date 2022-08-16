@@ -3,8 +3,6 @@ use App\Config\Application;
 use App\Config\Request;
 use App\Config\View;
 
-const SERVE = "php -S 127.0.0.1:8080 -t public";
-
 
 function dd(...$exceptions): bool|string
 {
@@ -15,9 +13,15 @@ function dd(...$exceptions): bool|string
     return ob_get_contents();
 }
 
-function asset($path): string
+function asset($path): mixed
 {
-    return sprintf('%s/%s', Request::BaseUrl(), $path);
+    //return Application::$rootDIR . "/public/$path";
+    return Request::BaseUrl() . "/$path";
+}
+
+function view(string $view, array|object $data = []): bool|string
+{
+    return (new View())::render($view, $data);
 }
 
 
@@ -31,10 +35,10 @@ function asset($path): string
 function error_handlerView(int $errorCode, ?string $errorMessage, ?string $errorFile, ?string $errorLine): string
 {
     $errors   = [
-        'errorCode'    => $errorCode,
-        'errorMessage' => $errorMessage,
-        'errorFile'    => $errorFile,
-        'errorLine'    => $errorLine,
+        'errorCode'    => $errorCode ?? "",
+        'errorMessage' => $errorMessage ?? "",
+        'errorFile'    => $errorFile ?? "",
+        'errorLine'    => $errorLine ?? "",
     ];
     $errorLog = "date: " . date("Y-m-d h:i:s") . " error Code: $errorCode message: $errorMessage file Name: $errorFile fine: $errorLine" . PHP_EOL;
     file_put_contents(sprintf("%s/config/errorLog.log", Application::$rootDIR), $errorLog, FILE_APPEND);

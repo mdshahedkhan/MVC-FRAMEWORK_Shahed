@@ -91,7 +91,7 @@
             width: 1000px;
             max-width: 100%;
             padding: 4rem;
-            text-transform: uppercase;
+            text-transform: capitalize;
         }
 
         .output {
@@ -120,6 +120,9 @@
         .errorcode {
             color: white;
         }
+        .text-capitalize{
+            text-transform: ucfirst;
+        }
     </style>
 </head>
 <body>
@@ -127,9 +130,9 @@
     <div class="overlay"></div>
     <div class="terminal">
         <h1>Error Code <span class="errorcode"><?= $errorCode ?></span></h1>
-        <p class="output"><strong>Error Message: </strong><?= $errorMessage ?></p>
-        <p class="output"><strong>Error FIle: </strong><?= $errorFile ?></p>
-        <p class="output"><strong>Error FIle: </strong><?= $errorLine ?></p>
+        <p class="output"><strong class="text-capitalize">Error Message: </strong><?= $errorMessage ?></p>
+        <p class="output"><strong>Error File: </strong><?= $errorFile ?></p>
+        <p class="output"><strong>Error Line: </strong><?= $errorLine ?></p>
     </div>
 </body>
 </html>

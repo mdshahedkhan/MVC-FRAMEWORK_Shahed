@@ -38,10 +38,13 @@ class View
     public static function ErrorRender($view, array|object $data = []): string
     {
         ob_start();
-        foreach ($data['errors'] as $key => $datum) {
-            $$key = $datum;
+        if (isset($data['errors'])) {
+            foreach ($data['errors'] as $key => $datum) {
+                $$key = $datum;
+            }
         }
-        include_once sprintf("%s/config/views/$view.php", Application::$rootDIR);
+        $errors = $data;
+        include_once sprintf("%s/config/views/$view.php", dirname(__DIR__));
         return ob_get_contents();
     }
 
@@ -66,8 +69,7 @@ class View
      * @param array|object $data
      * @return bool|string
      */
-    private
-    function renderOnlyView($view, array|object $data = []): bool|string
+    private function renderOnlyView($view, array|object $data = []): bool|string
     {
         $view = str_replace('.', '/', $view);
         ob_start();
@@ -78,8 +80,7 @@ class View
         return ob_get_contents();
     }
 
-    public
-    function content($type): bool|string
+    public function content($type): bool|string
     {
         if ($type === $this->head) {
             return $this->head;

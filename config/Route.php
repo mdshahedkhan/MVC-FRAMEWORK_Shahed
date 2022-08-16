@@ -4,11 +4,12 @@ namespace App\Config;
 
 class Route
 {
-    protected Request     $request;
-    protected Response    $response;
-    private static array  $routes = [];
-    private static string $storeRoute;
-    private View          $view;
+    protected Request       $request;
+    protected Response      $response;
+    private static array    $routes = [];
+    private static string   $storeRoute;
+    private View            $view;
+    protected static string $prefix = '';
 
     public function __construct()
     {
@@ -19,8 +20,8 @@ class Route
 
     public static function get(string $url, $callback): Route
     {
-        self::$routes['get'][$url] = $callback;
-        self::$storeRoute          = $url;
+        self::$routes['get'][self::$prefix . $url] = $callback;
+        self::$storeRoute                          = $url;
         return new Route();
     }
 
@@ -28,6 +29,12 @@ class Route
     {
         self::$routes['post'][$url] = $callback;
         self::$storeRoute           = $url;
+        return new Route();
+    }
+
+    public static function prefix(string $prefix): Route
+    {
+        self::$prefix = $prefix;
         return new Route();
     }
 
@@ -39,7 +46,7 @@ class Route
 
     public function name(string $name): string
     {
-        return self::$routes[$name] = self::$storeRoute;
+        return self::$routes[$name] = self::$prefix . self::$storeRoute;
     }
 
     /**
@@ -63,5 +70,10 @@ class Route
             $dispatch[0]                  = Application::$app->controller;
         }
         return call_user_func($dispatch, $this->request, $this->view);
+    }
+
+    public function group(callable $callable)
+    {
+        return call_user_func($callable);
     }
 }

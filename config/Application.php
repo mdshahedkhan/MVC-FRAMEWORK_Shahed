@@ -4,6 +4,8 @@ namespace App\Config;
 class Application extends Foundation
 {
 
+
+
     /**
      * @return void
      */

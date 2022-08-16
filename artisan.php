@@ -1,17 +1,9 @@
 <?php
 
+use App\Config\CommandFileStructure\Console;
+
 require_once __DIR__ . "./vendor/autoload.php";
-use App\Config\Log;
-use App\Config\Model;
-use App\Config\Str;
 
-
-$command = $argv;
-if ($command[1] === 'serve') {
-    exec(SERVE);
-} elseif ('model') {
-
-    Log::success("Execute done!");
-} else {
-    Log::error("Command Not Found.");
-}
+$commands = $argv;
+$console  = new Console($commands);
+$console->run();

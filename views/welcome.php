@@ -15,7 +15,9 @@
     <div class="welcome-box text-center">
         <h1>Welcome To MVC Framework</h1>
         <p class="font-bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, odit?</p>
-        <p>Developer By: <a href="<?= $link ?>">Hm Shahed</a></p>
+        <!--<p>Developer By: <a href="<?/*= $link */?>">Hm Shahed</a></p>-->
+
+        <?= dd($_SERVER) ?>
     </div>
 </body>
 </html>
