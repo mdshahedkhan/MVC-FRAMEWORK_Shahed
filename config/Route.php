@@ -4,12 +4,14 @@ namespace App\Config;
 
 class Route
 {
+    private static mixed    $call_user_func;
     protected Request       $request;
     protected Response      $response;
     private static array    $routes = [];
     private static string   $storeRoute;
     private View            $view;
     protected static string $prefix = '';
+    private array           $routeName;
 
     public function __construct()
     {
@@ -25,12 +27,14 @@ class Route
         return new Route();
     }
 
+
     public static function post(string $url, $callback): Route
     {
-        self::$routes['post'][$url] = $callback;
-        self::$storeRoute           = $url;
+        self::$routes['post'][self::$prefix . $url] = $callback;
+        self::$storeRoute                           = $url;
         return new Route();
     }
+
 
     public static function prefix(string $prefix): Route
     {
@@ -39,14 +43,38 @@ class Route
     }
 
 
-    public function getRoute($route)
+    public function getRoute($route, array $params)
     {
-        return static::$routes[$route];
+        $path = static::$routes[$route];
+        if (!$params) {
+            return $path;
+        }
+        $SlParams = 0;
+        $newPath  = "";
+        foreach ($params as $key => $param) {
+            $SlParams++;
+            if ($SlParams === 1) {
+                $newPath = $path . "?$key=$param";
+            } else {
+                $newPath .= $path . "&$key=$param";
+            }
+        }
+        return $newPath;
     }
 
-    public function name(string $name): string
+
+    public static function route($route, $params = []): bool|string
     {
-        return self::$routes[$name] = self::$prefix . self::$storeRoute;
+        ob_start();
+        $location = (new Route)->getRoute($route, $params);
+        header("Location: $location");
+        return ob_get_contents();
+    }
+
+    public function name(string $name): Route
+    {
+        self::$routes[$name] = self::$prefix . self::$storeRoute;
+        return new Route();
     }
 
     /**
@@ -69,11 +97,17 @@ class Route
             Application::$app->controller = new $dispatch[0]();
             $dispatch[0]                  = Application::$app->controller;
         }
-        return call_user_func($dispatch, $this->request, $this->view);
+        Session::set('preUrl', $path);
+        return call_user_func($dispatch, $this->request);
     }
 
     public function group(callable $callable)
     {
-        return call_user_func($callable);
+        call_user_func($callable);
+    }
+
+    public function middleware(array ...$string): Route
+    {
+        return new Route();
     }
 }

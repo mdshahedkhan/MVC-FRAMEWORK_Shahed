@@ -1,12 +1,47 @@
-date: 2022-08-16 05:14:44 error Code: 2 message: Undefined array key "errors" file Name: D:\MVC-FRAMEWORK\config\View.php fine: 41
-date: 2022-08-16 05:16:06 error Code: 2 message: Undefined array key "errors" file Name: D:\MVC-FRAMEWORK\config\View.php fine: 41
-date: 2022-08-16 05:16:33 error Code: 2 message: Undefined array key "errors" file Name: D:\MVC-FRAMEWORK\config\View.php fine: 41
-date: 2022-08-16 05:16:34 error Code: 2 message: Undefined array key "errors" file Name: D:\MVC-FRAMEWORK\config\View.php fine: 41
-date: 2022-08-16 05:17:56 error Code: 2 message: Undefined array key "errors" file Name: D:\MVC-FRAMEWORK\config\View.php fine: 41
-date: 2022-08-16 05:21:14 error Code: 2 message: Undefined variable $link file Name: D:\MVC-FRAMEWORK\views\welcome.php fine: 18
-date: 2022-08-16 05:21:38 error Code: 2 message: Undefined variable $link file Name: D:\MVC-FRAMEWORK\views\welcome.php fine: 18
-date: 2022-08-16 05:53:58 error Code: 2 message: Array to string conversion file Name: D:\MVC-FRAMEWORK\views\welcome.php fine: 20
-date: 2022-08-16 06:11:43 error Code: 2 message: include_once(D:\MVC-FRAMEWORK/views/welcom.php): Failed to open stream: No such file or directory file Name: D:\MVC-FRAMEWORK\config\View.php fine: 79
-date: 2022-08-16 06:12:00 error Code: 2 message: include_once(D:\MVC-FRAMEWORK/views/welcom.php): Failed to open stream: No such file or directory file Name: D:\MVC-FRAMEWORK\config\View.php fine: 79
-date: 2022-08-16 06:12:57 error Code: 2 message: include_once(D:\MVC-FRAMEWORK/views/welcom.php): Failed to open stream: No such file or directory file Name: D:\MVC-FRAMEWORK\config\View.php fine: 79
-date: 2022-08-16 06:13:12 error Code: 2 message: include_once(D:\MVC-FRAMEWORK/views/welcom.php): Failed to open stream: No such file or directory file Name: D:\MVC-FRAMEWORK\config\View.php fine: 79
+date: 2022-08-17 01:46:18 error Code: 2 message: Undefined array key "login.store" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 48
+date: 2022-08-17 01:46:28 error Code: 2 message: Undefined array key "login.store" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 48
+date: 2022-08-17 02:41:23 error Code: 2 message: Undefined variable $val file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 13
+date: 2022-08-17 02:44:32 error Code: 2 message: Undefined array key "confirm_password" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 13
+date: 2022-08-17 02:44:55 error Code: 2 message: Undefined array key "confirm_password" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 13
+date: 2022-08-17 02:45:17 error Code: 2 message: Undefined array key "confirm_password" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 13
+date: 2022-08-17 02:45:27 error Code: 2 message: Undefined array key "confirm_password" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 13
+date: 2022-08-17 02:49:48 error Code: 2 message: Undefined array key "name" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 21
+date: 2022-08-17 06:47:08 error Code: 2 message: Array to string conversion file Name: D:\MVC-FRAMEWORK\config\Application.php fine: 71
+date: 2022-08-17 09:38:56 error Code: 2 message: Undefined array key "name" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:43:12 error Code: 2 message: Array to string conversion file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 18
+date: 2022-08-17 09:44:47 error Code: 2 message: Array to string conversion file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 18
+date: 2022-08-17 09:45:07 error Code: 2 message: Array to string conversion file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 18
+date: 2022-08-17 09:56:21 error Code: 2 message: Undefined array key "required" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:56:40 error Code: 2 message: Undefined array key "required" file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:57:20 error Code: 2 message: Undefined array key 0 file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:58:18 error Code: 2 message: Attempt to read property "email" on string file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:58:24 error Code: 2 message: Attempt to read property "email" on string file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:58:31 error Code: 2 message: Attempt to read property "e" on string file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 09:58:50 error Code: 2 message: Attempt to read property "email" on array file Name: D:\MVC-FRAMEWORK\config\Validator.php fine: 23
+date: 2022-08-17 10:45:49 error Code: 2 message: Undefined array key "/auth/login" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 49
+date: 2022-08-17 10:46:28 error Code: 2 message: Undefined array key "/auth/login" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 49
+date: 2022-08-17 10:47:39 error Code: 2 message: Undefined array key "/auth/login" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 49
+date: 2022-08-17 10:48:04 error Code: 2 message: Undefined array key "/auth/login" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 49
+date: 2022-08-17 10:48:36 error Code: 2 message: Undefined array key "/auth/login" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 48
+date: 2022-08-17 10:49:06 error Code: 2 message: Undefined array key "/auth/login" file Name: D:\MVC-FRAMEWORK\config\Route.php fine: 48
+date: 2022-08-17 11:16:45 error Code: 2 message: Undefined variable $errors file Name: D:\MVC-FRAMEWORK\views\login.php fine: 29
+date: 2022-08-17 11:16:53 error Code: 2 message: Undefined variable $errors file Name: D:\MVC-FRAMEWORK\views\login.php fine: 29
+date: 2022-08-18 05:53:49 error Code: 2 message: ini_set(): Session ini settings cannot be changed when a session is active file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 13
+date: 2022-08-18 05:54:12 error Code: 2 message: ini_set(): Session ini settings cannot be changed when a session is active file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 13
+date: 2022-08-18 05:54:28 error Code: 2 message: Undefined array key "flash_messages" file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 13
+date: 2022-08-18 06:11:32 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 16
+date: 2022-08-18 06:11:32 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 16
+date: 2022-08-18 06:11:32 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 16
+date: 2022-08-18 06:11:33 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 16
+date: 2022-08-18 06:11:49 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 16
+date: 2022-08-18 06:12:03 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 15
+date: 2022-08-18 06:12:18 error Code: 8192 message: Automatic conversion of false to array is deprecated file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 15
+date: 2022-08-18 07:42:57 error Code: 2 message: Undefined variable $column file Name: D:\MVC-FRAMEWORK\app\Http\Controllers\Admin\HomeController.php fine: 18
+date: 2022-08-18 07:43:09 error Code: 2 message: Undefined variable $column file Name: D:\MVC-FRAMEWORK\app\Http\Controllers\Admin\HomeController.php fine: 18
+date: 2022-08-18 07:53:22 error Code: 2 message: Attempt to read property "name" on int file Name: D:\MVC-FRAMEWORK\views\welcome.php fine: 22
+date: 2022-08-18 08:28:25 error Code: 2 message: Attempt to read property "name" on int file Name: D:\MVC-FRAMEWORK\views\welcome.php fine: 22
+date: 2022-08-18 08:28:37 error Code: 2 message: Attempt to read property "name" on int file Name: D:\MVC-FRAMEWORK\views\welcome.php fine: 22
+date: 2022-08-19 04:14:42 error Code: 2 message: Undefined array key "test" file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 45
+date: 2022-08-19 05:22:17 error Code: 2 message: compact(): Undefined variable $users file Name: D:\MVC-FRAMEWORK\app\Http\Controllers\HomeController.php fine: 18
+date: 2022-08-20 12:14:58 error Code: 8 message: session_start(): Ignoring session_start() because a session is already active file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 11
+date: 2022-08-20 12:15:01 error Code: 8 message: session_start(): Ignoring session_start() because a session is already active file Name: D:\MVC-FRAMEWORK\config\Session.php fine: 11

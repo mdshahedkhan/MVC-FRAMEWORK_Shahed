@@ -6,6 +6,7 @@ class Log
 {
     private const RED_COLOR = "\033[1;31m";
     private const GREEN_COLOR = "\033[1;32m";
+    private const GREEN_COLOR_BG = "\e[42mGreen";
     private const YELLOW_COLOR = "\033[1;33m";
     private const CYAN_COLOR = "\033[1;36m";
     private const NormanColor = "\e[0m";
@@ -15,6 +16,11 @@ class Log
     public static function success(string $string): void
     {
         echo self::GREEN_COLOR . $string . self::NormanColor . PHP_EOL;
+    }
+
+    public static function Success_BG(string $string): void
+    {
+        echo self::GREEN_COLOR_BG . $string . self::NormanColor . PHP_EOL;
     }
 
     public static function warning(string $string): void

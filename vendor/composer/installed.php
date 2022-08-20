@@ -3,7 +3,7 @@
         'name' => 'hm_shahed/mvc-framework',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'dca1392131e5645bb92164ff72c98a7229852a22',
+        'reference' => 'c4ffcbb0a80d8a39512d32715b15a5a3198037cb',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'hm_shahed/mvc-framework' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'dca1392131e5645bb92164ff72c98a7229852a22',
+            'reference' => 'c4ffcbb0a80d8a39512d32715b15a5a3198037cb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

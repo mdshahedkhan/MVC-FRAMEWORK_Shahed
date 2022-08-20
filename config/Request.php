@@ -4,6 +4,12 @@ namespace App\Config;
 
 class Request
 {
+
+    public function __construct()
+    {
+        
+    }
+
     /**
      * @return string
      */
@@ -27,6 +33,11 @@ class Request
         if (method_exists(self::class, $name)) {
             return call_user_func_array([self::class, $name], $arguments);
         }
+    }
+
+    public static function previousUrl()
+    {
+        dd($_SERVER);
     }
 
 

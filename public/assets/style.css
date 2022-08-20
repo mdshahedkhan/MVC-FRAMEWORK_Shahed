@@ -1,31 +1,28 @@
-/*Error Page Css Start*/
-* {
+*{
+    color: #1e272e;
     font-family: 'Roboto', sans-serif;
 }
-
-html, body {
-    height: 100%;
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
     overflow: hidden;
 }
 
-html {
-    display: table;
-    margin: auto;
+.text-gray2{
+    color: #485460;
+}
+.bg-gray2{
+    color: #485460;
 }
 
-body {
-    display: table-cell;
-    vertical-align: middle;
-    font-weight: 300;
-    color: #515b65;
+.modal-content-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
-
-.text-center {
-    text-align: center;
-}
-
-.font-bold {
-    font-weight: 500;
-}
-
-/*End Error Page*/

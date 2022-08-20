@@ -1,25 +1,34 @@
 <?php
 use App\Config\Application;
 use App\Config\Request;
+use App\Config\Validator;
 use App\Config\View;
+
+$errors = Validator::$errors;
+global $errors;
 
 
 function dd(...$exceptions): bool|string
 {
     ob_start();
     echo "<pre>";
-    var_dump($exceptions);
+    print_r($exceptions);
     echo "</pre>";
     return ob_get_contents();
 }
 
-function asset($path): mixed
+/*function asset($path): string
 {
-    //return Application::$rootDIR . "/public/$path";
-    return Request::BaseUrl() . "/$path";
+    return $_SERVER['HTTP_HOST'] . "/$path";
+}*/
+
+function asserts(string $assets): string
+{
+    $root = (string) (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+    return $root . $assets;
 }
 
-function view(string $view, array|object $data = []): bool|string
+function view(string $view, array|object $data = []): string
 {
     return (new View())::render($view, $data);
 }
@@ -53,21 +62,8 @@ function redirect($path): void
 
 function route($route, $params = [])
 {
-    $path = Application::$app->route->getRoute($route);
-    if (!$params) {
-        return $path;
-    }
-    $SlParams = 0;
-    $newPath  = "";
-    foreach ($params as $key => $param) {
-        $SlParams++;
-        if ($SlParams === 1) {
-            $newPath = $path . "?$key=$param";
-        } else {
-            $newPath .= $path . "&$key=$param";
-        }
-    }
-    return $newPath;
+    return Application::$app->route->getRoute($route, $params);
+
 }
 
 

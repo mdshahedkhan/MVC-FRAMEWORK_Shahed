@@ -2,16 +2,16 @@
 namespace App\Config\CommandFileStructure;
 
 use App\Config\Log;
+use App\Config\Schema;
 
 class Console
 {
     private static string $ROOT_DIR_Command = __DIR__ . "/";
     private static array  $receivedCommand;
     private const CreateServerIP = "php -S 127.0.0.1:8080 -t public";
-    private const CreateServer = "php -S localhost:8080 -t public";
 
-    private const SERVE = 'serve', MakeController = 'make:controller', MakeModel = 'make:model', MakeMigration = 'make:migration';
-    private static array $command = [self::SERVE => self::SERVE, self::MakeController => self::MakeController, self::MakeModel => self::MakeModel, self::MakeMigration => self::MakeMigration];
+    private const SERVE = 'serve', MakeController = 'make:controller', MakeModel = 'make:model', MakeMigration = 'make:migration', migrate = 'migrate';
+    private static array $command = [self::SERVE => self::SERVE, self::MakeController => self::MakeController, self::MakeModel => self::MakeModel, self::MakeMigration => self::MakeMigration, self::migrate => self::migrate];
 
     public function __construct($receivedCommand)
     {
@@ -31,12 +31,25 @@ class Console
         return true;
     }
 
+    /**
+     * @return void
+     */
     public static function serve(): void
     {
         if (self::checkCommand() === true && self::$command[self::SERVE] === self::$receivedCommand[1]) {
-            shell_exec(self::CreateServer);
+            Log::success("Server Is Running...");
+            shell_exec(self::CreateServerIP);
         }
     }
+
+
+    public function migration(): void
+    {
+        if (self::checkCommand() === true && self::$command[self::migrate] === self::$receivedCommand[1]) {
+            Schema::runQuery();
+        }
+    }
+
 
     /**
      * @return void
@@ -45,7 +58,7 @@ class Console
     {
         $ControllerName = isset(self::$receivedCommand[2]) ?? "";
         $makeController = isset(self::$receivedCommand[1]) ?? "";
-        if (self::checkCommand() === true && in_array($makeController, self::$command)) {
+        if (self::checkCommand() === true && in_array($makeController, self::$command) && self::MakeController === self::$receivedCommand[1]) {
             if (!$ControllerName == '') {
                 $ControllerCreateLink = sprintf("%s/../../app/Http/Controllers/%s.php", __DIR__, self::$receivedCommand[2]);
                 if (!file_exists($ControllerCreateLink)) {
@@ -80,6 +93,47 @@ class Console
         }
     }
 
+    /**
+     * @return void
+     */
+    public static function MakeModel(): void
+    {
+        $ModelName = isset(self::$receivedCommand[2]) ?? "";
+        $makeModel = isset(self::$receivedCommand[1]) ?? "";
+        if (self::checkCommand() === true && in_array($makeModel, self::$command) && self::MakeModel === self::$receivedCommand[1]) {
+            if (!$ModelName == '') {
+                $ModelCreateLink = __DIR__ . "/../../app/Models/" . self::$receivedCommand[2] . ".php";
+                if (!file_exists($ModelCreateLink)) {
+                    $controllerSlash = strpos(self::$receivedCommand[2], '/') ?? false;
+                    if ($controllerSlash) {
+                        $explodeControllerName = explode("/", self::$receivedCommand[2]);
+                        $controllerName        = end($explodeControllerName);
+                    } else {
+                        $controllerName = self::$receivedCommand[2];
+                    }
+                    $ModelStructure         = str_replace("{{Model}}", $controllerName, file_get_contents(__DIR__ . "/Model.txt"));
+                    $ControllerNamePosition = strpos(self::$receivedCommand[2], "/") ?? false;
+                    $directoryArr           = explode("/", self::$receivedCommand[2]);
+                    if ($ControllerNamePosition) {
+                        if (!is_dir(__DIR__ . "/../../app/Models/$directoryArr[0]")) {
+                            mkdir(__DIR__ . "/../../app/Models/$directoryArr[0]");
+                        }
+                        $repNameSpc     = "\\" . $directoryArr[0];
+                        $ModelStructure = str_replace("{{\directory}}", $repNameSpc, $ModelStructure);
+                    } else {
+                        $ModelStructure = str_replace("{{\directory}}", "", $ModelStructure);
+                    }
+                    file_put_contents($ModelCreateLink, $ModelStructure);
+                    Log::success("Successfully model created . ");
+                } else {
+                    Log::error("This model is already has been exists . ");
+                }
+
+            } else {
+                Log::error("You didn't name the model");
+            }
+        }
+    }
 
     private static function ScanFolder(): array
     {
@@ -92,9 +146,7 @@ class Console
             $newFiles[] = $file;
         }
         return $newFiles;
-
     }
-
 
     public static function RunCommand(string $command, string $name = null): void
     {
@@ -115,9 +167,11 @@ class Console
 
     public function run(): void
     {
+        $this->migration();
+        exit();
         self::serve();
         self::MakeController();
-        //self::ScanFolder();
+        self::MakeModel();
     }
 
 }

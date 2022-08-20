@@ -6,7 +6,8 @@
             "App\\Config\\CommandFileStructure\\": "./config/CommandFileStructure",
             "App\\Http\\Controllers\\": "./app/Http/Controllers",
             "App\\Models\\": "./app/Models",
-            "App\\Migrations\\": "./migrations"
+            "App\\Migrations\\": "./migrations",
+            "App\\Http\\Middleware\\": "app/Http/Middleware"
         },
         "files": [
             "./app/Helpers/function.php"
@@ -18,5 +19,7 @@
             "email": "63577807+mdshahedkhan@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-pdo": "*"
+    }
 }

@@ -8,7 +8,7 @@ class Response
     public final const Created = 201;
     public final const Accepted = 202;
     public final const NonAuthoritativeInformation = 203;
-    public final const OK = 200;
+    public final const HttpOk = 200;
     public final const NoContent = 204;
     public final const ResetContent = 205;
     public final const PartialContent = 206;

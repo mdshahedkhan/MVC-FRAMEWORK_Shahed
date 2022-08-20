@@ -13,9 +13,9 @@ class View
     /**
      * @param string       $view
      * @param array|object $data
-     * @return bool|string
+     * @return string
      */
-    public static function make(string $view, array|object $data = []): bool|string
+    public static function make(string $view, array|object $data = []): string
     {
         return (new View())->renderOnlyView($view, $data);
     }
@@ -23,9 +23,9 @@ class View
     /**
      * @param       $view
      * @param array $data
-     * @return bool|string
+     * @return string
      */
-    public static function render($view, array $data = []): bool|string
+    public static function render($view, array $data = []): string
     {
         return (new View())->renderOnlyView($view, $data);
     }
@@ -51,10 +51,10 @@ class View
     /***
      * @param $view
      * @param $data
-     * @return string|false
+     * @return string
      */
     private
-    static function errorBuffer($view, $data): string|bool
+    static function errorBuffer($view, $data): string
     {
         ob_start();
         foreach ($data as $key => $value) {
@@ -67,9 +67,9 @@ class View
     /**
      * @param              $view
      * @param array|object $data
-     * @return bool|string
+     * @return string
      */
-    private function renderOnlyView($view, array|object $data = []): bool|string
+    private function renderOnlyView($view, array|object $data = []): string
     {
         $view = str_replace('.', '/', $view);
         ob_start();
@@ -80,7 +80,7 @@ class View
         return ob_get_contents();
     }
 
-    public function content($type): bool|string
+    public function content($type): string
     {
         if ($type === $this->head) {
             return $this->head;
@@ -93,8 +93,7 @@ class View
      * @param $type
      * @return bool
      */
-    public
-    function section($type): bool
+    public function section($type): bool
     {
         $this->outputBuffer = $type;
         return ob_start();
@@ -103,8 +102,7 @@ class View
     /**
      * @return false|string|void
      */
-    public
-    function endsection()
+    public function endsection()
     {
         if ($this->outputBuffer === 'head') {
             return $this->head = ob_get_clean();

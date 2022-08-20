@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Models{{\directory}};
+
+use App\Config\Model;
+use App\Config\Str;
+
+class {{Model}} extends Model
+{
+}

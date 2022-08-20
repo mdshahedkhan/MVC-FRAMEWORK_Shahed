@@ -3,26 +3,28 @@
 namespace App\Config;
 
 use PDO;
-use PDOException;
-use App\Config\Exceptions\DatabaseConnectionException;
 
 class Database
 {
-    private const DB_SERVERNAME = "localhost";
-    private const DB_USERNAME = "root";
-    private const DB_PASSWORD = "";
-    private const DB_NAME = "oasis";
-    public static PDO $PDO;
+    public        $PDO;
+    public string $username   = "root";
+    public string $password   = "";
+    public string $selverName = "localhost";
+    public string $dbName     = "oasis";
 
     public function __construct()
     {
         try {
-            $DB_SERVERNAME = self::DB_SERVERNAME;
-            $DB_NAME       = self::DB_NAME;
-            self::$PDO     = new PDO("mysql:host=$DB_SERVERNAME;dbname=$DB_NAME", self::DB_USERNAME, self::DB_PASSWORD);
-            self::$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (DatabaseConnectionException $exception) {
-            echo $exception->getMessage();
+            $this->PDO = new PDO("mysql:host=$this->selverName;dbname=$this->dbName;", $this->username, $this->password);
+            $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $exception) {
+            echo "Database Connection Failed: " . $exception->getMessage();
+            exit;
         }
+    }
+
+    public static function PDO(): PDO
+    {
+        return self::$PDO;
     }
 }
